@@ -14,6 +14,27 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+
+/**
+ * adding total of n+(n-1) for column while  rows stay at n
+ * for loop 0 to n
+ * make empty string variable
+ * make an other for loop from 0 to n + (n-1)
+ * if length equals n+(n-1) return
+ * else add # or ' '
+ *
+ * 
+ */
+function pyramid(n) {
+    
+  for(let row=0; row < n; row++) {
+    let step = '';
+    for(let column = 0; column <= n+(n-1); column++) {
+      console.log("#", column);
+    }
+  }
+}
+
+pyramid(3);
 
 module.exports = pyramid;
