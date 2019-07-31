@@ -25,16 +25,47 @@
  *
  * 
  */
-function pyramid(n) {
-    
-  for(let row=0; row < n; row++) {
-    let step = '';
-    for(let column = 0; column <= n+(n-1); column++) {
-      console.log("#", column);
-    }
+function pyramid(n, row = 0, levels = '') {
+  // if row equals n return
+  // if columns equals n return
+  // logic to add '#' or ' '
+  // recurse
+  let mid = Math.floor((2*n-1)/2);
+  let length = levels.length;
+  if(row === n) {
+    return;
   }
+
+  if(length === 2*n-1) {
+    console.log(levels);
+    return pyramid(n, row+1);
+  }
+
+  if(length-row <= mid && length+row >= mid) {
+    levels += '#';
+  } else {
+    levels += ' ';
+  }
+
+  pyramid(n, row, levels);
+
 }
 
-pyramid(3);
 
 module.exports = pyramid;
+
+// function pyramid(n) {
+//   let middleElm = Math.floor((n + n-1)/2);
+    
+//   for(let row=0; row < n; row++) {
+//     let step = '';
+//     for(let column = 0; column < n + n - 1; column++) {
+//       if(middleElm - row <= column && middleElm + row >= column) {
+//         step += '#';
+//       } else {
+//         step += ' ';
+//       }
+//     }
+//     console.log(step);
+//   }
+// }
